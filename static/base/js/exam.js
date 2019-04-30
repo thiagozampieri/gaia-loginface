@@ -84,6 +84,12 @@ function success(response) {
             })
         });
     }
+
+    if (_faces.length == 0) {
+        jQuery('#username_face').val("");
+        jQuery('#password_face').val("");
+    }
+
 }
 
 function face_detector(image_src) {
@@ -118,9 +124,19 @@ function takePicture() {
     face_detector(data);
  }
 
+function blackModal() {
+    var username = jQuery('#username_face').val();
+    var password = jQuery('#password_face').val();
+    var value = "initial";
+    if (username != "" && password != "") value = "none";
+
+    document.getElementById("blackModal").style.display = value;
+}
+
 var closeDetect;
-function dectect() {
+function detect() {
     closeDetect = setInterval(takePicture, 1000);
+    closeContainer = setInterval(blackModal, 1000);
     document.getElementById("btnLoginFace1").style.display = "none";
     document.getElementById("btnLoginFace2").style.display = "initial";
     document.getElementById("btnLoginFace3").style.display = "initial";
@@ -128,4 +144,13 @@ function dectect() {
 
 function stop() {
     clearInterval(closeDetect);
+    clearInterval(closeContainer);
+    document.getElementById("btnLoginFace1").style.display = "initial";
+    document.getElementById("btnLoginFace2").style.display = "none";
+    document.getElementById("btnLoginFace3").style.display = "none";
+    document.getElementById("blackModal").style.display = "initial";
+    _faces = [];
+
+    jQuery('#username_face').val("");
+    jQuery('#password_face').val("");
 }

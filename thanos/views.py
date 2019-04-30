@@ -13,3 +13,13 @@ def index(request):
         'cfg'       : json.dumps(cfg.options())
     }
     return HttpResponse(template.render(context, request))
+
+def exam(request):
+    #return HttpResponse("Hello, world. You're at the polls index.")
+    template = loader.get_template('exam.html')
+    context = { 
+        'title'     : 'LoginFace - Reconhecimento em Teste',
+        'STATIC_URL': settings.STATIC_URL,
+        'cfg'       : json.dumps(cfg.options())
+    }
+    return HttpResponse(template.render(context, request))

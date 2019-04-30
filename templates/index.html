@@ -14,7 +14,7 @@
             function jsonpretty(string) { return JSON.parse(string.replace(/&quot;/gi, '"')); }
             var BASE_CONFIG = jsonpretty("{{ cfg }}");
         </script>
-        <script src="{{ STATIC_URL }}base/js/main.js"></script>
+        <script src="{{ STATIC_URL }}base/js/login.js"></script>
     </head>
     <body>
         <div class="container login-container">
@@ -55,7 +55,7 @@
                         <div class="form-group text-center">
                             <input type="submit" class="btnSubmit" id="btnLoginFace2" value="LoginFace" style="display: none;" />
 
-                            <input type="button" onclick="dectect()" id="btnLoginFace1" class="btnSubmit" value="Detectar" />
+                            <input type="button" onclick="detect()" id="btnLoginFace1" class="btnSubmit" value="Detectar" />
 
                             <input type="button" onclick="stop()" id="btnLoginFace3" class="mt-4 btnSubmit" value="Parar" style="display: none;" />
 

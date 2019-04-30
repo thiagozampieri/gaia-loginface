@@ -23,6 +23,7 @@ import face_detector.views as fdView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('exam', views.exam, name='exam'),
     path('face_detector/', fdView.requested_url),
     path('face_login/', fdView.login),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
